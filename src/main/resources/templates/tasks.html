@@ -6,6 +6,10 @@
 
 <nav th:include="_template :: menu('task')" ></nav>
 
+<a href="/task/new" class="btn-sm btn-primary">
+	<span class="material-icons">add</span>
+</a>
+
 <div class="tasks">
 	<div class="task" th:each="task : ${tasks}">
 		<div class="card-task">
@@ -26,12 +30,14 @@
 				</div>
 			</div>
 		</div>
-		<button class="btn-hand">
-			<span class="material-icons">pan_tool</span>
-		</button>
-		<a class="btn btn-sm yellow">
-			<span class="material-icons">edit</span>
-		</a>
+		<div class="task-action">
+			<button class="btn-hand">
+				<span class="material-icons">pan_tool</span>
+			</button>
+			<a th:href="${'/task/' + task.id }"class="btn btn-sm yellow">
+				<span class="material-icons">edit</span>
+			</a>
+		</div>
 	</div>
 </div>
 </body>
