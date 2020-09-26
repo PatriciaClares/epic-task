@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="_template :: head"></head>
+<head th:include="_template :: head">
+</head>
 <body>
 <h1>Tarefas</h1>
 
@@ -17,7 +18,7 @@
 			<h2 th:text="${task.title}"></h2>
 			<div class="point">
 				<span class="material-icons">star</span>
-				<span>100</span>
+				<span th:text="${task.point}"></span>
 			</div>
 
 			<div class="status">
@@ -29,20 +30,21 @@
 					<h2 th:text="${task.status}"></h2>
 				</div>
 			</div>
-		</div>
-		<div class="task-action">
-			<button class="btn-hand">
-				<span class="material-icons">pan_tool</span>
-			</button>
-			<a th:href="${'/task/' + task.id }"class="btn btn-sm yellow">
-				<span class="material-icons">edit</span>
-			</a>
+			<div class="task-action">
+				<button class="btn-hand">
+					<span class="material-icons">pan_tool</span>
+				</button>
+				<a th:href="${'/task/' + task.id }"class="btn btn-sm yellow">
+					<span class="material-icons">edit</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
 </body>
-<script>
-	const teste = document.querySelector("#status").value
-	console.log("testando",teste)
-</script>
+<style>
+	.card-task{
+		height: 270px;
+	}
+</style>
 </html>
